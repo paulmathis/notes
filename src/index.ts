@@ -26,6 +26,7 @@ const text = process.argv.slice(2).join(" ");
 try {
   if (fs.existsSync(fileName)) {
     fs.appendFileSync(fileName, "\n\n" + text);
+    console.log("Note added:", text);
     process.exit(0);
   }
 } catch (err) {
@@ -35,6 +36,8 @@ try {
 // If file doesn't exists create it with the text
 try {
   fs.writeFileSync(fileName, text);
+  console.log("Note added:", text);
+  process.exit(0);
 } catch (err) {
   console.error(err);
 }
