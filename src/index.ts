@@ -1,5 +1,5 @@
 import { note } from "./note";
-import { todo } from "./todo";
+import { getTodos, todo } from "./todo";
 import config from "../config.json";
 import fs from "fs";
 
@@ -18,8 +18,13 @@ try {
   process.exit(0);
 }
 
-if (process.argv[2] === "-t") {
-  todo(process.argv.slice(3).join(" "));
-} else {
-  note(process.argv.slice(2).join(" "));
+switch (process.argv[2]) {
+  case "-t":
+    todo(process.argv.slice(3).join(" "));
+    break;
+  case "-l":
+    getTodos();
+    break;
+  default:
+    note(process.argv.slice(2).join(" "));
 }
