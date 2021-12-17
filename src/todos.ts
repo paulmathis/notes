@@ -1,9 +1,9 @@
 import fs from "fs";
 import { TODO_FILE } from "./constants";
-import { createOrAppend } from "./helpers";
+import createOrAppend from "./helpers";
 
-export function todo(todo: string) {
-  createOrAppend(TODO_FILE, "[ ] " + todo, "Todo");
+export function todos(todo: string) {
+  createOrAppend(TODO_FILE, `[ ] ${todo}`, "Todo");
 }
 
 export function getTodos() {

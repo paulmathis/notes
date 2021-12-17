@@ -1,12 +1,16 @@
 import fs from "fs";
 
-export function createOrAppend(path: fs.PathLike, data: string, type: string) {
+export default function createOrAppend(
+  path: fs.PathLike,
+  data: string,
+  type: string
+) {
   const successMessage = `${type} added: ${data}`;
 
   // If file exists append the text to it
   try {
     if (fs.existsSync(path)) {
-      fs.appendFileSync(path, "\n\n" + data);
+      fs.appendFileSync(path, `\n\n${data}`);
       console.log(successMessage);
       process.exit(0);
     }

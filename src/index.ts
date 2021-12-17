@@ -1,7 +1,7 @@
-import { note } from "./note";
-import { getTodos, todo } from "./todo";
-import config from "../config.json";
 import fs from "fs";
+import notes from "./notes";
+import { getTodos, todos } from "./todos";
+import config from "../config.json";
 
 // Check that there's text
 if (process.argv.length <= 2) process.exit(0);
@@ -20,11 +20,11 @@ try {
 
 switch (process.argv[2]) {
   case "-t":
-    todo(process.argv.slice(3).join(" "));
+    todos(process.argv.slice(3).join(" "));
     break;
   case "-l":
     getTodos();
     break;
   default:
-    note(process.argv.slice(2).join(" "));
+    notes(process.argv.slice(2).join(" "));
 }
